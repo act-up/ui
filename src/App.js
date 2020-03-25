@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Container, Row, Col } from 'react-bootstrap'
-import { NavLink, Switch, Route } from 'react-router-dom';
 
+// Layout components
 import Navigation from './components/layout/navigation'
 import Main from './components/layout/main'
 import Footer from './components/layout/footer'
