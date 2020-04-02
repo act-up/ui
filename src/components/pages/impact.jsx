@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Impact = () => (
   <div className='impact'>
-    <h1>Our Impact </h1>
+    <h1>Impact </h1>
 
     <p>todo</p>
 

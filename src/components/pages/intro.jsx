@@ -1,4 +1,4 @@
-import React, { StatelessComponent } from 'react';
+import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
@@ -7,7 +7,7 @@ const Intro: React.StatelessComponent = () => {
 
         <Jumbotron fluid>
           <Container>
-            <h1>Use your Voice. Speak Up for Our Planet.</h1>
+            <h1>Take action for our planet.</h1>
             <p>
                 We are a grassroots advocacy campaign that wants to empower you to take action on behalf of our planet.
             </p>

@@ -1,11 +1,11 @@
-import React, { StatelessComponent } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Navbar, Nav, Form, Button } from 'react-bootstrap'
+import { Navbar, Nav, Button } from 'react-bootstrap'
 
 const Navigation: React.StatelessComponent = () => {
     return(
         <Navbar bg="light" variant="light">
-          <Navbar.Brand><NavLink to="/campaigns">Empower2Act</NavLink></Navbar.Brand>
+          <Navbar.Brand><NavLink to="/">Act.Up</NavLink></Navbar.Brand>
           <Nav className="justify-content-end">
             <Nav.Item>
                 <Button variant="info"><NavLink to='/suggestions'>Suggest a Campaign</NavLink></Button>{' '}

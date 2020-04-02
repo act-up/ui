@@ -1,16 +1,21 @@
-import React, { StatelessComponent } from 'react';
+import React from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap'
 
-const Sidebar: React.StatelessComponent = () => {
+const Sidebar: React.Component = ({ active_issues }) => {
     return(
 
         <Container>
           <Row>
             <header>Active Campaigns</header>
           </Row>
-          <Row>
-            <p>A campaign example!</p>
-          </Row>
+
+
+          {active_issues.map((issue) => (
+              <Row>{issue.issue_name}</Row>
+
+              ))}
+              <Row>&nbsp;</Row>
+              
           <Row>
             <Form>
                 <Form.Group controlId="formBasicEmail">

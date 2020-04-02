@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 
 // Layout components
 import Navigation from './components/layout/navigation'
 import Main from './components/layout/main'
 import Footer from './components/layout/footer'
+
+// Static Pages
+import About from './components/pages/about'
+import Contact from './components/pages/contact'
+import Privacy from './components/pages/privacy'
+import Impact from './components/pages/impact'
+import Suggestions from './components/pages/suggestions'
+import Donate from './components/pages/donate'
+
 
 // Twitter API
 var Twitter = require('twitter');
@@ -47,15 +57,40 @@ T.get('search/tweets', params, function(err, data, response) {
 })
 
 class App extends Component {
-  render() {
-    return (
-        <div className="App">
-            <Navigation></Navigation>
-            <Main></Main>
-            <Footer></Footer>
-        </div>
-    );
-  }
+
+    state = {
+        active_issues: []
+    }
+
+    // Fetch all active issues from api
+    componentDidMount() {
+        fetch('http://localhost:8080/issues')
+        .then(res => res.json())
+        .then((data) => {
+            this.setState({ active_issues: data })
+        })
+        .catch(console.log)
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <Navigation />
+                <Switch>
+                    <Route exact path='/' render={ (props) =>
+                          <Main { ...props } active_issues={ this.state.active_issues } />
+                        }></Route>
+                    <Route exact path='/about' component={About}></Route>
+                    <Route exact path='/contact' component={Contact}></Route>
+                    <Route exact path='/privacy' component={Privacy}></Route>
+                    <Route exact path='/impact' component={Impact}></Route>
+                    <Route exact path='/suggestions' component={Suggestions}></Route>
+                    <Route exact path='/donate' component={Donate}></Route>
+                </Switch>
+                <Footer />
+            </div>
+        );
+    }
 }
 
 export default App;
