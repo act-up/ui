@@ -9,7 +9,6 @@ class Sidebar extends Component {
 
     render() {
         let value = this.context;
-        console.log(value.selected_issue)
 
         return(
 

@@ -9,7 +9,7 @@ class Navigation extends Component {
 
     render() {
         let value = this.context;
-        console.log(value.selected_issue)
+        var default_issue = 0;
 
         return(
             <IssueContext.Consumer>
@@ -17,8 +17,8 @@ class Navigation extends Component {
                     <Navbar bg="light" variant="light">
                         <Navbar.Brand>
                             <NavLink to='/'
-                                value={0}
-                                onClick={() => updateIssue(0)}>
+                                value={default_issue}
+                                onClick={() => updateIssue(default_issue)}>
                                 Act.Up
                             </NavLink>
                         </Navbar.Brand>

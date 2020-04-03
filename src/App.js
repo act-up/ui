@@ -68,7 +68,6 @@ class App extends Component {
             this.setState(state => ({
                 selected_issue: issue_num
             }));
-
         };
 
         this.state = {
@@ -92,11 +91,11 @@ class App extends Component {
 
     render() {
 
-        console.log(this.state)
-
         return (
             <div className="App">
-                <Navigation />
+                <IssueContext.Provider value={this.state}>
+                    <Navigation />
+                </IssueContext.Provider>
                 <Switch>
                     <Route exact path='/'>
                         <IssueContext.Provider value={this.state}>

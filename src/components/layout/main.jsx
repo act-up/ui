@@ -5,12 +5,11 @@ import Content from './content'
 import IssueContext from './context'
 
 class Main extends Component {
-    
+
     static contextType = IssueContext;
 
     render() {
         let value = this.context;
-        console.log(value)
 
         return(
 
