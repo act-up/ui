@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Navbar, Nav, Button } from 'react-bootstrap'
-import IssueContext from './context'
+import IssueContext from './context';
+
+// Semantic UI layout and styling
+import { Container, Menu, Button, Image } from 'semantic-ui-react';
 
 class Navigation extends Component {
 
@@ -14,23 +16,27 @@ class Navigation extends Component {
         return(
             <IssueContext.Consumer>
                 {value, ({updateIssue}) => (
-                    <Navbar bg="light" variant="light">
-                        <Navbar.Brand>
-                            <NavLink to='/'
-                                value={default_issue}
-                                onClick={() => updateIssue(default_issue)}>
-                                Act.Up
-                            </NavLink>
-                        </Navbar.Brand>
-                      <Nav className="justify-content-end">
-                        <Nav.Item>
-                            <Button variant="info"><NavLink to='/suggestions'>Suggest a Campaign</NavLink></Button>{' '}
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Button variant="info"><NavLink to='/donate'>Donate</NavLink></Button>{' '}
-                        </Nav.Item>
-                      </Nav>
-                    </Navbar>
+
+                    <Menu size='medium'>
+                        <Container>
+                            <Menu.Item
+                                name="Home"
+                                onClick={() => updateIssue(default_issue)}
+                                as='a'>
+                                <NavLink to='/'><Image src='https://raw.githubusercontent.com/act-up/ui/master/public/logo.png' size='tiny' /></NavLink>
+                            </Menu.Item>
+
+                            <Menu.Item position='right'>
+                                <Button as='a'style={{ marginLeft: '0.25em' }}>
+                                    <NavLink to='/suggestions'>Suggest an Issue</NavLink>
+                                </Button>
+                                <Button as='a'style={{ marginLeft: '0.5em' }}>
+                                    <NavLink to='/donate'>Donate</NavLink>
+                                </Button>
+                            </Menu.Item>
+
+                        </Container>
+                    </Menu>
                 )}
             </IssueContext.Consumer>
         )

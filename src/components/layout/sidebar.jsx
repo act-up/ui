@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Form } from 'react-bootstrap'
-import IssueContext from './context'
+import IssueContext from './context';
+
+// Semantic UI layout and styling
+import { Grid, Form, Input, TextArea, Button, Select, Header } from 'semantic-ui-react';
 
 class Sidebar extends Component {
 
@@ -15,36 +17,30 @@ class Sidebar extends Component {
             <IssueContext.Consumer>
                 {value, ({updateIssue}) => (
 
-                    <Container>
-                      <Row>
-                        <header>Active Campaigns</header>
-                      </Row>
+                    <Grid padded>
+
+                      <Grid.Row>
+                        <Grid.Column>
+                            <Header as='h2'>Active Issues</Header>
+                        </Grid.Column>
+                      </Grid.Row>
 
                       {value.active_issues.map((issue) => (
-                          <Row>
-                            <Link to='/' value={issue.id}
-                                onClick={() => updateIssue(issue.id)}>
-                                {issue.issue_name}
-                            </Link>
-                          </Row>
+                          <Grid.Row>
+                            <Grid.Column>
+                                <Link to='/' value={issue.id}
+                                    onClick={() => updateIssue(issue.id)}>
+                                    {issue.issue_name}
+                                </Link>
+                            </Grid.Column>
+                          </Grid.Row>
 
                       ))}
 
+                      <Grid.Row>
 
-                      <Row>&nbsp;</Row>
-
-                      <Row>
-                        <Form>
-                            <Form.Group controlId="formBasicEmail">
-                              <Form.Label>Sign up for Campaign Alerts</Form.Label>
-                              <Form.Control type="email" placeholder="Enter email" />
-                              <Form.Text className="text-muted">
-                                Please sign up for emails if you would like to be notified of new campaigns. You can unsubscribe from emails at any time.
-                              </Form.Text>
-                            </Form.Group>
-                        </Form>
-                      </Row>
-                    </Container>
+                      </Grid.Row>
+                    </Grid>
 
                 )}
             </IssueContext.Consumer>

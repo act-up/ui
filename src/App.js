@@ -2,21 +2,20 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 
-import IssueContext from './components/layout/context'
+import IssueContext from './components/layout/context';
 
 // Layout components
-import Navigation from './components/layout/navigation'
-import Main from './components/layout/main'
-import Footer from './components/layout/footer'
+import Navigation from './components/layout/navigation';
+import Main from './components/layout/main';
+import Footer from './components/layout/footer';
 
 // Static Pages
-import About from './components/pages/about'
-import Contact from './components/pages/contact'
-import Privacy from './components/pages/privacy'
-import Impact from './components/pages/impact'
-import Suggestions from './components/pages/suggestions'
-import Donate from './components/pages/donate'
-
+import About from './components/pages/about';
+import Contact from './components/pages/contact';
+import Privacy from './components/pages/privacy';
+import Impact from './components/pages/impact';
+import Suggestions from './components/pages/suggestions';
+import Donate from './components/pages/donate';
 
 // Twitter API
 /*var Twitter = require('twitter');

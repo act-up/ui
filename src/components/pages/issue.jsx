@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import Jumbotron from 'react-bootstrap/Jumbotron'
-import IssueContext from '../layout/context'
+import IssueContext from '../layout/context';
+
+// Semantic UI layout and styling
+import { Grid, Header } from 'semantic-ui-react';
 
 class Issue extends Component {
 
@@ -14,16 +15,13 @@ class Issue extends Component {
 
             <IssueContext.Consumer>
                 {value => (
-
-                    <Jumbotron fluid>
-                      <Container>
-
-                        <h1>{value.active_issues[value.selected_issue-1].issue_name}</h1>
-
+                    <Grid>
+                        <Header as='h1'>
+                            {value.active_issues[value.selected_issue-1].issue_name}
+                        </Header>
                         <p>{value.active_issues[value.selected_issue-1].issue_description}</p>
 
-                      </Container>
-                    </Jumbotron>
+                    </Grid>
                 )}
             </IssueContext.Consumer>
 

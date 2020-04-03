@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import Jumbotron from 'react-bootstrap/Jumbotron'
 import IssueContext from './context'
 import Intro from '../pages/intro'
 import Issue from '../pages/issue'
+
+// Semantic UI layout and styling
+import { Grid } from 'semantic-ui-react'
 
 class Content extends Component {
 
@@ -23,11 +24,9 @@ class Content extends Component {
 
             <IssueContext.Consumer>
                 {value => (
-                    <Jumbotron fluid>
-                      <Container>
+                    <Grid>
                         {contentToDisplay}
-                      </Container>
-                    </Jumbotron>
+                    </Grid>
                 )}
             </IssueContext.Consumer>
 
