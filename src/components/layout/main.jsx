@@ -1,24 +1,40 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap'
+import React, { Component } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import Sidebar from './sidebar'
 import Content from './content'
+import IssueContext from './context'
 
-const Main: React.Component = ({ active_issues }) => {
+class Main extends Component {
+    
+    static contextType = IssueContext;
 
-    return(
+    render() {
+        let value = this.context;
+        console.log(value)
 
-        <Container fluid>
-          <Row>
-            <Col sm={3}>
-                <Sidebar active_issues={active_issues} />
-            </Col>
-            <Col sm={9}>
-                <Content />
-            </Col>
-          </Row>
-        </Container>
+        return(
 
-    );
-};
 
+            <IssueContext.Consumer>
+                {value => (
+                    <Container fluid>
+                        <Row>
+                            <Col sm={3}>
+                                <IssueContext.Provider value={value}>
+                                    <Sidebar />
+                                </IssueContext.Provider>
+                            </Col>
+                            <Col sm={9}>
+                                <IssueContext.Provider value={value}>
+                                    <Content />
+                                </IssueContext.Provider>
+                            </Col>
+                        </Row>
+                    </Container>
+                )}
+            </IssueContext.Consumer>
+        )
+
+    }
+}
 export default Main;

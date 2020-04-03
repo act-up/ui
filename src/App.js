@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 
+import IssueContext from './components/layout/context'
+
 // Layout components
 import Navigation from './components/layout/navigation'
 import Main from './components/layout/main'
@@ -17,7 +19,7 @@ import Donate from './components/pages/donate'
 
 
 // Twitter API
-var Twitter = require('twitter');
+/*var Twitter = require('twitter');
 var config = require('./config.js');
 var T = new Twitter(config);
 
@@ -54,12 +56,26 @@ T.get('search/tweets', params, function(err, data, response) {
   } else {
     console.log(err);
   }
-})
+})*/
+
 
 class App extends Component {
 
-    state = {
-        active_issues: []
+    constructor(props) {
+        super(props);
+
+        this.updateIssue = (issue_num) => {
+            this.setState(state => ({
+                selected_issue: issue_num
+            }));
+
+        };
+
+        this.state = {
+            active_issues: [],
+            selected_issue: 0,
+            updateIssue: this.updateIssue
+        };
     }
 
     // Fetch all active issues from api
@@ -67,19 +83,26 @@ class App extends Component {
         fetch('http://localhost:8080/issues')
         .then(res => res.json())
         .then((data) => {
-            this.setState({ active_issues: data })
+            this.setState({
+                active_issues: data,
+            })
         })
         .catch(console.log)
     }
 
     render() {
+
+        console.log(this.state)
+
         return (
             <div className="App">
                 <Navigation />
                 <Switch>
-                    <Route exact path='/' render={ (props) =>
-                          <Main { ...props } active_issues={ this.state.active_issues } />
-                        }></Route>
+                    <Route exact path='/'>
+                        <IssueContext.Provider value={this.state}>
+                            <Main  />
+                        </IssueContext.Provider>
+                    </Route>
                     <Route exact path='/about' component={About}></Route>
                     <Route exact path='/contact' component={Contact}></Route>
                     <Route exact path='/privacy' component={Privacy}></Route>

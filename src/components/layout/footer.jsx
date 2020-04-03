@@ -11,16 +11,16 @@ const Footer: React.StatelessComponent = () => {
                 <Col sm={8}>
                     <Nav>
                         <Nav.Item>
-                          <Nav.Link><NavLink to='/about'>About</NavLink></Nav.Link>
+                          <NavLink to='/about'>About</NavLink>
                         </Nav.Item>
                         <Nav.Item>
-                          <Nav.Link><NavLink to='/contact'>Contact</NavLink></Nav.Link>
+                          <NavLink to='/contact'>Contact</NavLink>
                         </Nav.Item>
                         <Nav.Item>
-                          <Nav.Link><NavLink to='/privacy'>Privacy</NavLink></Nav.Link>
+                          <NavLink to='/privacy'>Privacy</NavLink>
                         </Nav.Item>
                         <Nav.Item>
-                          <Nav.Link><NavLink to='/impact'>Impact</NavLink></Nav.Link>
+                          <NavLink to='/impact'>Impact</NavLink>
                         </Nav.Item>
                         <Nav.Item>
                             <SocialMediaIconsReact borderColor="rgba(255,255,255,1)" borderWidth="0" borderStyle="solid" icon="twitter" iconColor="rgba(255,255,255,1)" backgroundColor="rgba(251,251,251,0)" iconSize="4" roundness="32%" url="https://www.twitter.com/#" size="25" />
