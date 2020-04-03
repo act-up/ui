@@ -9,7 +9,6 @@ class Issue extends Component {
     static contextType = IssueContext;
 
     render() {
-        let value = this.context;
 
         return(
 

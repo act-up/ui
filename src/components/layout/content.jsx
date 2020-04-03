@@ -14,7 +14,7 @@ class Content extends Component {
         let value = this.context;
 
         var contentToDisplay;
-        if (value.selected_issue == 0) {
+        if (value.selected_issue === 0) {
             contentToDisplay = <Intro />
         } else {
             contentToDisplay = <Issue />

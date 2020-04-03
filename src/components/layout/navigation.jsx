@@ -17,13 +17,13 @@ class Navigation extends Component {
             <IssueContext.Consumer>
                 {value, ({updateIssue}) => (
 
-                    <Menu size='medium'>
+                    <Menu secondary size='small'>
                         <Container>
                             <Menu.Item
                                 name="Home"
                                 onClick={() => updateIssue(default_issue)}
                                 as='a'>
-                                <NavLink to='/'><Image src='https://raw.githubusercontent.com/act-up/ui/master/public/logo.png' size='tiny' /></NavLink>
+                                <NavLink to='/'><Image src='https://raw.githubusercontent.com/act-up/ui/master/public/logo.png' size='small' /></NavLink>
                             </Menu.Item>
 
                             <Menu.Item position='right'>

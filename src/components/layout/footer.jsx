@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {SocialMediaIconsReact} from 'social-media-icons-react';
 
 // Semantic UI layout and styling
-import { Grid, List } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 const Footer: React.StatelessComponent = () => {
   return (

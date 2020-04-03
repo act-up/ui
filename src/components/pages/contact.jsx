@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Semantic UI layout and styling
-import { Grid, Header, Form, Input, TextArea, Button, Select } from 'semantic-ui-react';
+import { Grid, Header, Form, Input, TextArea, Button } from 'semantic-ui-react';
 
 const Contact = () => (
   <div className='contact'>

@@ -16,14 +16,14 @@ class Main extends Component {
 
             <IssueContext.Consumer>
             {value => (
-                <Grid padded>
+                <Grid container columns={2}>
                     <Grid.Row>
                         <Grid.Column width={5}>
                             <IssueContext.Provider value={value}>
                                 <Sidebar />
                             </IssueContext.Provider>
                         </Grid.Column>
-                        <Grid.Column width={8}>
+                        <Grid.Column width={10}>
                             <IssueContext.Provider value={value}>
                                 <Content />
                             </IssueContext.Provider>

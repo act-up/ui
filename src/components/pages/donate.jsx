@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Semantic UI layout and styling
-import { Grid, Header, Form, Input, TextArea, Button, Select } from 'semantic-ui-react';
+import { Grid, Header } from 'semantic-ui-react';
 
 const Donate = () => (
     <div className='donate'>
