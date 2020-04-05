@@ -8,7 +8,7 @@ const Suggestions = () => (
     <Grid padded>
         <Grid.Row>
           <Grid.Column width={5}>
-              <Header as='h1' floated='right'>Suggest a New Issue</Header>
+              <Header as='h1' floated='right'>Suggest a New Issue Campaign</Header>
           </Grid.Column>
           <Grid.Column width={8}>
 
@@ -39,16 +39,18 @@ const Suggestions = () => (
                   id='form-input-control-email'
                   control={Input}
                   label='Email'
-                  placeholder='joe@schmoe.com'
+                  placeholder='email@example.com'
                 />
                 <Form.Field
                   id='form-button-control-public'
                   control={Button}
                   content='Send'
+                  color='blue'
                 />
               </Form>
           </Grid.Column>
         </Grid.Row>
+        <Grid.Row></Grid.Row>
     </Grid>
     </div>
 );

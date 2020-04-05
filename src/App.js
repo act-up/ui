@@ -14,6 +14,7 @@ import About from './components/pages/about';
 import Contact from './components/pages/contact';
 import Privacy from './components/pages/privacy';
 import Impact from './components/pages/impact';
+import Subscribe from './components/pages/subscribe';
 import Suggestions from './components/pages/suggestions';
 import Donate from './components/pages/donate';
 
@@ -105,6 +106,7 @@ class App extends Component {
                     <Route exact path='/contact' component={Contact}></Route>
                     <Route exact path='/privacy' component={Privacy}></Route>
                     <Route exact path='/impact' component={Impact}></Route>
+                    <Route exact path='/subscribe' component={Subscribe}></Route>
                     <Route exact path='/suggestions' component={Suggestions}></Route>
                     <Route exact path='/donate' component={Donate}></Route>
                 </Switch>

@@ -14,6 +14,7 @@ const Impact = () => (
                     <p>Once this platform gets going, we will display usage statistics and issue results here!</p>
                 </Grid.Column>
             </Grid.Row>
+            <Grid.Row></Grid.Row>
         </Grid>
     </div>
 );

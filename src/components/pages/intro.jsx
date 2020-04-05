@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Semantic UI layout and styling
 import { Grid, Header, Button } from 'semantic-ui-react';
@@ -18,12 +19,25 @@ const Intro: React.StatelessComponent = () => {
             </p>
 
             <p>
-                Select an active campaign on the left, or use the button below to suggest a new campaign.
+                Select an active campaign on the left. We provide a letter template outlining the issue and a link to the
+                best contact page to email the company. Some companies also use Twitter to communicate with customers, and we will
+                include a Twitter Direct Message link in this case. We encourage you to reach out in as many ways as possible!
+                The more we speak up, the more incentive they have to listen!
+            </p>
+
+
+            <p>
+                If you have an idea for a new campaign, please use the button below to suggest a new issue.
                 Our team will research the issue, draft advocacy materials, and create a new campaign on the site.
             </p>
 
-            <Button variant="primary">Learn more</Button>
+            <Grid.Row centered>
+                <Button color='blue' variant='primary'><Link class='whitelink' to='suggestions'>Suggest a New Campaign</Link></Button>
+            </Grid.Row>
 
+            <Grid.Row></Grid.Row>
+            <Grid.Row></Grid.Row>
+            <Grid.Row></Grid.Row>
         </Grid>
     );
 };

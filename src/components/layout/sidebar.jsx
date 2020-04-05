@@ -5,6 +5,8 @@ import IssueContext from './context';
 // Semantic UI layout and styling
 import { Grid, Form, Input, Button, Header, Menu } from 'semantic-ui-react';
 
+var maxFormWidth = 100;
+
 class Sidebar extends Component {
 
     static contextType = IssueContext;
@@ -44,7 +46,7 @@ class Sidebar extends Component {
                     </Grid.Row>
 
                     <Grid.Row>
-                        <Grid.Column width={12}>
+                        {/*<Grid.Column width={12}>
                             <Form>
                             <Form.Field
                               id='form-input-control-email'
@@ -59,8 +61,10 @@ class Sidebar extends Component {
                             />
                           </Form>
                           <p>Sign up for emails if you would like to be notified of new campaigns. You can unsubscribe at any time.</p>
-                        </Grid.Column>
+                        </Grid.Column>*/}
                     </Grid.Row>
+                    <Grid.Row></Grid.Row>
+                    <Grid.Row></Grid.Row>
                 </Grid>
 
             )}

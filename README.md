@@ -13,4 +13,5 @@ todo
 * social-media-icons-react
 * react-router-dom (website)
 * react-router-native (apps)
-* react-redux 
+* react-redux
+* html-loader

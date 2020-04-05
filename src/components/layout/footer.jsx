@@ -11,10 +11,10 @@ const Footer: React.StatelessComponent = () => {
         <Grid columns={3} padded>
             <Grid.Row padded color='black'>
                 <Grid.Column floated='left' width={6}>
-                    <Link to='/about' style={{ marginLeft: '0.75em' }}>About</Link>
-                    <Link to='/contact' style={{ marginLeft: '0.75em' }}>Contact</Link>
-                    <Link to='/privacy' style={{ marginLeft: '0.75em' }}>Privacy</Link>
-                    <Link to='/impact' style={{ marginLeft: '0.75em' }}>Impact</Link>
+                    <Link class='footerlink' to='/about' style={{ marginLeft: '0.75em' }}>About</Link>
+                    <Link class='footerlink' to='/contact' style={{ marginLeft: '0.75em' }}>Contact</Link>
+                    <Link class='footerlink' to='/privacy' style={{ marginLeft: '0.75em' }}>Privacy</Link>
+                    <Link class='footerlink' to='/impact' style={{ marginLeft: '0.75em' }}>Impact</Link>
                 </Grid.Column>
                 <Grid.Column  width={5}>
                     <p className="text-right">&copy; 2020 Act.Up</p>

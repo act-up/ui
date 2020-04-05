@@ -15,11 +15,13 @@ class Issue extends Component {
             <IssueContext.Consumer>
                 {value => (
                     <Grid>
-                        <Header as='h1'>
-                            {value.active_issues[value.selected_issue-1].issue_name}
-                        </Header>
-                        <p>{value.active_issues[value.selected_issue-1].issue_description}</p>
-
+                        <Grid.Row>
+                            <Header as='h1'>
+                                {value.active_issues[value.selected_issue-1].issue_name}
+                            </Header>
+                            <p>{value.active_issues[value.selected_issue-1].issue_description}</p>
+                        </Grid.Row>
+                        <Grid.Row></Grid.Row>
                     </Grid>
                 )}
             </IssueContext.Consumer>

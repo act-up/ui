@@ -13,8 +13,8 @@ const Contact = () => (
                   <Header as='h1' floated='right'>Contact Us</Header>
               </Grid.Column>
               <Grid.Column width={8}>
-                  <p>Questions? Comments? Please use the form below to contact us.</p>
-                  <p>Please don't use this form to suggest a new issue campaign. Please use the button at the top of the page or <Link to='/suggestions'>click here</Link>.</p>
+                  <p>Questions? Comments? Concerns? Please use the form below to contact us.</p>
+                  <p>Please don't use this form to suggest a new issue campaign. Please use the button at the top of the page or <Link class='clickable_link' to='/suggestions'>click here</Link>.</p>
 
                   <Form>
                     <Form.Group widths='equal'>
@@ -52,6 +52,7 @@ const Contact = () => (
 
               </Grid.Column>
           </Grid.Row>
+          <Grid.Row></Grid.Row>
       </Grid>
 
 

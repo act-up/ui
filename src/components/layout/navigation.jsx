@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import IssueContext from './context';
 
 // Semantic UI layout and styling
-import { Container, Menu, Button, Image } from 'semantic-ui-react';
+import { Grid, Menu, Button, Image } from 'semantic-ui-react';
 
 class Navigation extends Component {
 
@@ -17,26 +17,28 @@ class Navigation extends Component {
             <IssueContext.Consumer>
                 {value, ({updateIssue}) => (
 
-                    <Menu secondary size='small'>
-                        <Container>
-                            <Menu.Item
-                                name="Home"
-                                onClick={() => updateIssue(default_issue)}
-                                as='a'>
-                                <NavLink to='/'><Image src='https://raw.githubusercontent.com/act-up/ui/master/public/logo.png' size='small' /></NavLink>
-                            </Menu.Item>
-
-                            <Menu.Item position='right'>
-                                <Button as='a'style={{ marginLeft: '0.25em' }}>
-                                    <NavLink to='/suggestions'>Suggest an Issue</NavLink>
-                                </Button>
-                                <Button as='a'style={{ marginLeft: '0.5em' }}>
-                                    <NavLink to='/donate'>Donate</NavLink>
-                                </Button>
-                            </Menu.Item>
-
-                        </Container>
-                    </Menu>
+                    <Grid>
+                        <Grid.Row>
+                            <Grid.Column width={5} floated='right'>
+                                    <Menu secondary position='right'
+                                        name="Home"
+                                        onClick={() => updateIssue(default_issue)}
+                                        as={ Link }
+                                        to='/'
+                                        >
+                                            <Image src='https://raw.githubusercontent.com/act-up/ui/master/public/logo.png' size='small' />
+                                    </Menu>
+                            </Grid.Column>
+                            <Grid.Column floated='right' width={10}>
+                                <Button.Group floated='right'>
+                                    <Button compact as={ Link } to='/' color='teal'>Active Issues</Button>
+                                    <Button compact as={ Link } to='/subscribe' color='teal' style={{ marginLeft: '0.25em' }}>Subscribe</Button>
+                                    <Button compact as={ Link } to='/suggestions' color='teal' style={{ marginLeft: '0.25em' }}>Suggest a Campaign</Button>
+                                    {/*<Button compact as={ Link } to='/donate' color='teal' style={{ marginLeft: '0.25em' }}>Donate</Button>*/}
+                                </Button.Group>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
                 )}
             </IssueContext.Consumer>
         )
