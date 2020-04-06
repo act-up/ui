@@ -22,6 +22,8 @@ const About = () => (
                     </p>
                 </Grid.Column>
             </Grid.Row>
+        </Grid>
+        <Grid padded>
             <Grid.Row>
                 <Grid.Column width={5}>
                     <Header as='h1' floated='right'>Our Team</Header>
@@ -32,14 +34,41 @@ const About = () => (
                         (contact form coming soon!)</p>
                     </Grid.Row>
                     <Grid.Row>
+                        <p>&nbsp;</p>
                     </Grid.Row>
-                    <Grid.Row>
-                        <Grid.Column width={2}>
-                            <Image src='https://raw.githubusercontent.com/act-up/ui/master/public/logo.png' size='small' />
+                    <Grid>
+                        <Grid.Row>
+                            <Grid.Column width={4} floated='left'>
+                                <Image src='https://raw.githubusercontent.com/act-up/ui/static_site/public/img/antonella.jpg' size='small' />
+                            </Grid.Column>
+                            <Grid.Column width={12} floated='left'>
+                                <p> <a href="https://antonellawilby.com/" target="_blank">Antonella</a> is an engineering graduate student, photographer, and founder of Act.Up.
+                                    Wanting to make a difference in the world, but frustrated by the passivity of online petitions and endless Tweeting, she developed Act.Up in hopes of
+                                    empowering people to take small, actionable steps towards a healthier planet and a happier society. As both an engineer and avid outdoorswoman, her work
+                                    focuses on using technology to combat environmental issues and help scientists understand the ocean. Find her at <a href="https://www.instagram.com/aaaaaantonella/" target="_blank">@aaaaaantonella</a> and
+                                    &nbsp;<a href="https://twitter.com/antonellawilby" target="_blank">@antonellawilby</a>.
+                                </p>
+                            </Grid.Column>
+                        </Grid.Row>
+                        <Grid.Row>
+                            <Grid.Column width={4} floated='left'>
+                                <Image src='https://raw.githubusercontent.com/act-up/ui/static_site/public/img/antonella.jpg' size='small' />
+                            </Grid.Column>
+                            <Grid.Column width={12} floated='left'>
+                                <p> Mugdha Flores
+                                </p>
+                            </Grid.Column>
+                        </Grid.Row>
+                        <Grid.Row>
+                        <Grid.Column width={4} floated='left'>
+                            <Image src='https://raw.githubusercontent.com/act-up/ui/static_site/public/img/antonella.jpg' size='small' />
                         </Grid.Column>
-                        <Grid.Column width={6}>
-                        </Grid.Column>
-                    </Grid.Row>
+                            <Grid.Column width={12} floated='left'>
+                                <p> Francesca Wilby
+                                </p>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row></Grid.Row>
