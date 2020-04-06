@@ -18,9 +18,12 @@ class Sidebar extends Component {
     render() {
         let value = this.context;
 
+        let issue1_name = "Trader Joe's: Please pay your workers hazard pay during COVID-19 pandemic!";
+        let issue2_name = "CA Governor Gavin Newsome: Please categorize grocery workers as essential workers during COVID-19 pandemic!";
+
         const { activeItem } = this.state
 
-        console.log(JSON.parse(value.active_issues[0]))
+        //console.log(JSON.parse(value.active_issues[0]))
 
         return(
 
@@ -32,7 +35,27 @@ class Sidebar extends Component {
                         <Grid.Column>
                             <Header as='h2'>Active Issues</Header>
 
-                            {value.active_issues.map((issue) => (
+                                <Menu fluid vertical tabular>
+                                    <Link to="#" value="1" onClick={() => updateIssue(1)}>
+                                        <Menu.Item
+                                            name="issue1"
+                                            active={activeItem === 1}
+                                            onClick={this.handleItemClick}>
+                                            {issue1_name}
+                                        </Menu.Item>
+                                    </Link>
+                                    <Link to="#" value="2" onClick={() => updateIssue(2)}>
+                                        <Menu.Item
+                                            name="issue2"
+                                            active={activeItem === 2}
+                                            onClick={this.handleItemClick}>
+                                            {issue2_name}
+                                        </Menu.Item>
+                                    </Link>
+
+                                </Menu>
+
+                            {/*}{value.active_issues.map((issue) => (
                                 <Menu fluid vertical tabular>
                                     <Link to={issue.id} value={issue.id}
                                         onClick={() => updateIssue(issue.id)}>
@@ -42,7 +65,7 @@ class Sidebar extends Component {
                                             onClick={this.handleItemClick} />
                                     </Link>
                                 </Menu>
-                            ))}
+                            ))}*/}
 
                         </Grid.Column>
                     </Grid.Row>

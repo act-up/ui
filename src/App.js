@@ -78,7 +78,7 @@ class App extends Component {
     }
 
     // Fetch all active issues from api
-    componentDidMount() {
+    /*componentDidMount() {
         fetch('http://localhost:8080/issues')
         .then(res => res.json())
         .then((data) => {
@@ -87,7 +87,7 @@ class App extends Component {
             })
         })
         .catch(console.log)
-    }
+    }*/
 
     render() {
 
@@ -109,6 +109,8 @@ class App extends Component {
                     <Route exact path='/subscribe' component={Subscribe}></Route>
                     <Route exact path='/suggestions' component={Suggestions}></Route>
                     <Route exact path='/donate' component={Donate}></Route>
+                    {/*<Route exact path='/1' component={Issue1}></Route>
+                    <Route exact path='/2' component={Issue2}></Route>*/}
                 </Switch>
                 <Footer />
             </div>

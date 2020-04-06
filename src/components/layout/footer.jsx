@@ -12,7 +12,7 @@ const Footer: React.StatelessComponent = () => {
             <Grid.Row padded color='black'>
                 <Grid.Column floated='left' width={6}>
                     <Link class='footerlink' to='/about' style={{ marginLeft: '0.75em' }}>About</Link>
-                    <Link class='footerlink' to='/contact' style={{ marginLeft: '0.75em' }}>Contact</Link>
+                    {/*<Link class='footerlink' to='/contact' style={{ marginLeft: '0.75em' }}>Contact</Link>*/}
                     <Link class='footerlink' to='/privacy' style={{ marginLeft: '0.75em' }}>Privacy</Link>
                     <Link class='footerlink' to='/impact' style={{ marginLeft: '0.75em' }}>Impact</Link>
                 </Grid.Column>

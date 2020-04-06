@@ -33,8 +33,6 @@ class Navigation extends Component {
                                 <Button.Group floated='right'>
                                     <Button compact as={ Link } to='/' color='teal'>Active Issues</Button>
                                     <Button compact as={ Link } to='/subscribe' color='teal' style={{ marginLeft: '0.25em' }}>Subscribe</Button>
-                                    <Button compact as={ Link } to='/suggestions' color='teal' style={{ marginLeft: '0.25em' }}>Suggest a Campaign</Button>
-                                    {/*<Button compact as={ Link } to='/donate' color='teal' style={{ marginLeft: '0.25em' }}>Donate</Button>*/}
                                 </Button.Group>
                             </Grid.Column>
                         </Grid.Row>
