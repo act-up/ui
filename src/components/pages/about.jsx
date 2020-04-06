@@ -55,7 +55,7 @@ const About = () => (
                                 <Image src='https://raw.githubusercontent.com/act-up/ui/static_site/public/img/antonella.jpg' size='small' />
                             </Grid.Column>
                             <Grid.Column width={12} floated='left'>
-                                <p> Mugdha Flores
+                                <p> Mugdha
                                 </p>
                             </Grid.Column>
                         </Grid.Row>
@@ -64,7 +64,7 @@ const About = () => (
                             <Image src='https://raw.githubusercontent.com/act-up/ui/static_site/public/img/antonella.jpg' size='small' />
                         </Grid.Column>
                             <Grid.Column width={12} floated='left'>
-                                <p> Francesca Wilby
+                                <p> Francesca
                                 </p>
                             </Grid.Column>
                         </Grid.Row>
