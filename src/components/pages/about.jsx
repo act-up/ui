@@ -43,7 +43,7 @@ const About = () => (
                             </Grid.Column>
                             <Grid.Column width={12} floated='left'>
                                 <p> <a href="https://antonellawilby.com/" target="_blank">Antonella</a> is an engineering graduate student, photographer, and founder of Act.Up.
-                                    Wanting to make a difference in the world, but frustrated by the passivity of online petitions and endless Tweeting, she developed Act.Up in hopes of
+                                    Wanting to make a difference in the world, but frustrated by the passivity of online petitions and endless tweeting, she developed Act.Up in hopes of
                                     empowering people to take small, actionable steps towards a healthier planet and a happier society. As both an engineer and avid outdoorswoman, her work
                                     focuses on using technology to combat environmental issues and help scientists understand the ocean. Find her at <a href="https://www.instagram.com/aaaaaantonella/" target="_blank">@aaaaaantonella</a> and
                                     &nbsp;<a href="https://twitter.com/antonellawilby" target="_blank">@antonellawilby</a>.
