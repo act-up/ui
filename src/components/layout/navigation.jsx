@@ -26,7 +26,7 @@ class Navigation extends Component {
                                         as={ Link }
                                         to='/'
                                         >
-                                            <Image src='https://raw.githubusercontent.com/act-up/ui/master/public/logo.png' size='small' />
+                                            <Image style={{ marginLeft: '8em' }} src='https://raw.githubusercontent.com/act-up/ui/master/public/logo.png' size='small' />
                                     </Menu>
                             </Grid.Column>
                             <Grid.Column floated='right' width={10}>

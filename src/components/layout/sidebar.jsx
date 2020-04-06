@@ -20,6 +20,8 @@ class Sidebar extends Component {
 
         const { activeItem } = this.state
 
+        console.log(JSON.parse(value.active_issues[0]))
+
         return(
 
             <IssueContext.Consumer>
@@ -32,10 +34,10 @@ class Sidebar extends Component {
 
                             {value.active_issues.map((issue) => (
                                 <Menu fluid vertical tabular>
-                                    <Link to='/' value={issue.id}
+                                    <Link to={issue.id} value={issue.id}
                                         onClick={() => updateIssue(issue.id)}>
                                         <Menu.Item
-                                            name={issue.issue_name}
+                                            name={issue.issue}
                                             active={activeItem === issue.issue_name}
                                             onClick={this.handleItemClick} />
                                     </Link>

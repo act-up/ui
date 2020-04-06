@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Semantic UI layout and styling
-import { Grid, Header, Button } from 'semantic-ui-react';
+import { Container, Grid, Header, Button } from 'semantic-ui-react';
 
 const Intro: React.StatelessComponent = () => {
     return(
-        <Grid>
+        <Container text>
             <Header as='h1'>Take action for our planet.</Header>
 
             <p>We are a grassroots advocacy campaign that wants to empower you to take action on behalf of our planet.</p>
@@ -31,14 +31,16 @@ const Intro: React.StatelessComponent = () => {
                 Our team will research the issue, draft advocacy materials, and create a new campaign on the site.
             </p>
 
-            <Grid.Row centered>
-                <Button color='blue' variant='primary'><Link class='whitelink' to='suggestions'>Suggest a New Campaign</Link></Button>
-            </Grid.Row>
+            <Grid>
+                <Grid.Row centered>
+                    <Button color='blue' variant='primary'><Link class='whitelink' to='/suggestions'>Suggest a New Campaign</Link></Button>
+                </Grid.Row>
 
-            <Grid.Row></Grid.Row>
-            <Grid.Row></Grid.Row>
-            <Grid.Row></Grid.Row>
-        </Grid>
+                <Grid.Row></Grid.Row>
+                <Grid.Row></Grid.Row>
+                <Grid.Row></Grid.Row>
+            </Grid>
+        </Container>
     );
 };
 
