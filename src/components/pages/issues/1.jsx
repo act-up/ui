@@ -15,7 +15,7 @@ const Issue1: React.StatelessComponent = () => {
 
             <Grid>
                 <Grid.Row centered>
-                    <Button color='blue' variant='primary'><a class='whitelink' href='https://www.traderjoes.com/contact-us/product-feedback' target="_blank">Go to Contact Page</a></Button>
+                    <Button color='blue' variant='primary'><a class='whitelink' href='https://www.traderjoes.com/contact-us/product-feedback' target="_blank" rel="noopener noreferrer">Go to Contact Page</a></Button>
                 </Grid.Row>
 
                 <Grid.Row></Grid.Row>

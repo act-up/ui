@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import IssueContext from './context';
 
 // Semantic UI layout and styling
-import { Grid, Form, Input, Button, Header, Menu } from 'semantic-ui-react';
+import { Grid, Header, Menu } from 'semantic-ui-react';
 
-var maxFormWidth = 100;
 
 class Sidebar extends Component {
 

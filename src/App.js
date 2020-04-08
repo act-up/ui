@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 
 import IssueContext from './components/layout/context';
 
 // Layout components
-import Navigation from './components/layout/navigation';
+import { NavBarDesktop } from './components/layout/navigation';
 import Main from './components/layout/main';
-import Footer from './components/layout/footer';
+import { Footer, FooterMobile } from './components/layout/footer';
 
 // Static Pages
-import About from './components/pages/about';
+import { About, AboutMobile } from './components/pages/about';
 import Contact from './components/pages/contact';
-import Privacy from './components/pages/privacy';
-import Impact from './components/pages/impact';
-import Subscribe from './components/pages/subscribe';
+import { Privacy, PrivacyMobile } from './components/pages/privacy';
+import { Impact, ImpactMobile } from './components/pages/impact';
+import { Subscribe, SubscribeMobile } from './components/pages/subscribe';
 import Suggestions from './components/pages/suggestions';
 import Donate from './components/pages/donate';
+
+// Semantic UI layout and styling
+import { Segment, Container, Sidebar, Responsive, Menu, Image, Icon } from 'semantic-ui-react';
 
 // Twitter API
 /*var Twitter = require('twitter');
@@ -59,6 +62,25 @@ T.get('search/tweets', params, function(err, data, response) {
 })*/
 
 
+const VerticalSidebar = ({ visible, toggle }) => (
+    <Sidebar
+      as={Menu}
+      animation='overlay'
+      direction='right'
+      icon='labeled'
+      vertical
+      visible={visible}
+      width='thin'>
+      <Menu.Item as={Link} to='/' onClick={toggle}>
+        Active Issues
+      </Menu.Item>
+      <Menu.Item as={Link} to='/subscribe' onClick={toggle}>
+        Subscribe
+      </Menu.Item>
+    </Sidebar>
+)
+
+
 class App extends Component {
 
     constructor(props) {
@@ -70,12 +92,19 @@ class App extends Component {
             }));
         };
 
+        this.handleSidebarToggle = this.handleSidebarToggle.bind(this);
+
         this.state = {
             active_issues: [],
             selected_issue: 0,
-            updateIssue: this.updateIssue
+            updateIssue: this.updateIssue,
+            visible: false,
+            dimmed: true
         };
     }
+
+    handleSidebarToggle = () => () =>
+        this.setState((prevState) => ({ visible: !prevState.visible }))
 
     // Fetch all active issues from api
     /*componentDidMount() {
@@ -91,28 +120,125 @@ class App extends Component {
 
     render() {
 
+        console.log("visible: ", this.state.visible);
+
         return (
             <div className="App">
-                <IssueContext.Provider value={this.state}>
-                    <Navigation />
-                </IssueContext.Provider>
-                <Switch>
-                    <Route exact path='/'>
+
+                {/* NAVIGATION BAR DESKTOP */}
+                <Segment basic>
+
+                    {/* DESKTOP AND TABLET VIEW */}
+                    <Responsive minWidth={Responsive.onlyTablet.minWidth}>
                         <IssueContext.Provider value={this.state}>
-                            <Main  />
+                            <NavBarDesktop />
                         </IssueContext.Provider>
-                    </Route>
-                    <Route exact path='/about' component={About}></Route>
-                    <Route exact path='/contact' component={Contact}></Route>
-                    <Route exact path='/privacy' component={Privacy}></Route>
-                    <Route exact path='/impact' component={Impact}></Route>
-                    <Route exact path='/subscribe' component={Subscribe}></Route>
-                    <Route exact path='/suggestions' component={Suggestions}></Route>
-                    <Route exact path='/donate' component={Donate}></Route>
-                    {/*<Route exact path='/1' component={Issue1}></Route>
-                    <Route exact path='/2' component={Issue2}></Route>*/}
-                </Switch>
-                <Footer />
+
+                        {/* MAIN CONTENT DESKTOP */}
+                        <Segment basic>
+                            <Switch>
+                                <Route exact path='/'>
+                                    <IssueContext.Provider value={this.state}>
+                                        <Main  />
+                                    </IssueContext.Provider>
+                                </Route>
+                                <Route exact path='/about' component={About}></Route>
+                                <Route exact path='/contact' component={Contact}></Route>
+                                <Route exact path='/privacy' component={Privacy}></Route>
+                                <Route exact path='/impact' component={Impact}></Route>
+                                <Route exact path='/subscribe' component={Subscribe}></Route>
+                                <Route exact path='/suggestions' component={Suggestions}></Route>
+                                <Route exact path='/donate' component={Donate}></Route>
+                                {/*<Route exact path='/1' component={Issue1}></Route>
+                                <Route exact path='/2' component={Issue2}></Route>*/}
+                            </Switch>
+
+                        </Segment>
+                    </Responsive>
+                </Segment>
+
+
+
+                {/* NAVIGATION BAR MOBILE */}
+                <Container>
+
+                    {/* MOBILE RESPONSIVE VIEW */}
+                    <Responsive {...Responsive.onlyMobile}>
+                        <IssueContext.Provider value={this.state, this.onToggle}>
+
+                            <Menu borderless>
+                              <Menu.Item>
+                                <Image size="small" src="https://raw.githubusercontent.com/act-up/ui/master/public/logo.png" />
+                              </Menu.Item>
+                              <Menu.Item position="right" onClick={this.handleSidebarToggle()}>
+                                <Icon name="sidebar" />
+                              </Menu.Item>
+                            </Menu>
+
+                            <Sidebar.Pushable as={Container} class='basic'>
+                                {/*<VerticalSidebar visible={this.state.visible} /> */}
+                                <Sidebar
+                                  as={Menu}
+                                  animation='overlay'
+                                  direction='right'
+                                  icon='labeled'
+                                  vertical
+                                  visible={this.state.visible}
+                                  width='thin'>
+                                  <Menu.Item as={Link} to='/' onClick={this.handleSidebarToggle()}>
+                                    Active Issues
+                                  </Menu.Item>
+                                  <Menu.Item as={Link} to='/subscribe' onClick={this.handleSidebarToggle()}>
+                                    Subscribe
+                                  </Menu.Item>
+                                </Sidebar>
+
+                            <Sidebar.Pusher dimmed={this.state.dimmed && this.state.visible}>
+
+                            {/* MAIN CONTENT MOBILE */}
+                            <Segment basic>
+                                <Switch>
+                                    <Route exact path='/'>
+                                        <IssueContext.Provider value={this.state}>
+                                            <Main  />
+                                        </IssueContext.Provider>
+                                    </Route>
+                                    <Route exact path='/about' component={AboutMobile}></Route>
+                                    <Route exact path='/contact' component={Contact}></Route>
+                                    <Route exact path='/privacy' component={PrivacyMobile}></Route>
+                                    <Route exact path='/impact' component={ImpactMobile}></Route>
+                                    <Route exact path='/subscribe' component={SubscribeMobile}></Route>
+                                    <Route exact path='/suggestions' component={Suggestions}></Route>
+                                    <Route exact path='/donate' component={Donate}></Route>
+                                    {/*<Route exact path='/1' component={Issue1}></Route>
+                                    <Route exact path='/2' component={Issue2}></Route>*/}
+                                </Switch>
+                            </Segment>
+                        </Sidebar.Pusher>
+                    </Sidebar.Pushable>
+                    </IssueContext.Provider>
+
+                    </Responsive>
+                </Container>
+
+
+                {/* FOOTER */}
+                <Segment inverted vertical style={{ padding: '1em 3em' }}>
+
+                    {/* DESKTOP AND TABLET VIEW */}
+                    <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+                        <Footer />
+                    </Responsive>
+
+                    {/* MOBILE RESPONSIVE VIEW */}
+                    <Responsive {...Responsive.onlyMobile}>
+                        <FooterMobile />
+                    </Responsive>
+
+                </Segment>
+
+
+
             </div>
         );
     }

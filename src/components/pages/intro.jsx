@@ -29,7 +29,7 @@ const Intro: React.StatelessComponent = () => {
                 We are just getting started, and will be expanding this site with new issues and new capabilities in the coming months.
                 If you have an issue in mind for a new campaign, we will have a suggestion form on this site soon. Our team will research
                 the issue, draft advocacy materials, and create a new campaign on this site. Please check back soon for our suggestion form,
-                or <Link to='/subscribe' class='clickable_link'>subscribe to our email list</Link> to be notifed when we open up campaign suggestions.
+                or <Link to='/subscribe' className='clickable_link'>subscribe to our email list</Link> to be notifed when we open up campaign suggestions.
             </p>
 
             {/*<p>

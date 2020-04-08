@@ -1,28 +1,53 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {SocialMediaIconsReact} from 'social-media-icons-react';
+import { SocialMediaIconsReact } from 'social-media-icons-react';
 
 // Semantic UI layout and styling
 import { Grid } from 'semantic-ui-react'
 
+const FooterLinks: React.StatelessComponent = () => {
+    return (
+        <div>
+            <Link className='footerlink' to='/about' style={{ marginLeft: '0.75em' }}>About</Link>
+            {/*<Link className='footerlink' to='/contact' style={{ marginLeft: '0.75em' }}>Contact</Link>*/}
+            <Link className='footerlink' to='/privacy' style={{ marginLeft: '0.75em' }}>Privacy</Link>
+            <Link className='footerlink' to='/impact' style={{ marginLeft: '0.75em' }}>Impact</Link>
+        </div>
+    );
+};
+
+const SocialLinks: React.StatelessComponent = () => {
+    return (
+        <div>
+            <SocialMediaIconsReact borderColor="rgba(255,255,255,1)" borderWidth="0" borderStyle="solid" icon="twitter" iconColor="rgba(255,255,255,1)" backgroundColor="rgba(255,255,255,0)" iconSize="4" roundness="32%" url="https://www.twitter.com/ActUpAdvocacy" size="25" />
+            <SocialMediaIconsReact borderColor="rgba(255,255,255,1)" borderWidth="0" borderStyle="solid" icon="instagram" iconColor="rgba(255,255,255,1)" backgroundColor="rgba(255,255,255,0)" iconSize="4" roundness="32%" url="https://www.instagram.com/act.up.advocacy/" size="25" />
+            <SocialMediaIconsReact borderColor="rgba(255,255,255,0)" borderWidth="0" borderStyle="solid" icon="github" iconColor="rgba(255,255,255,1)" backgroundColor="rgba(255,255,255,0)" iconSize="5" roundness="20%" url="https://github.com/act-up" size="25" />
+        </div>
+    );
+};
+
+const FooterCopyright: React.StatelessComponent = () => {
+    return (
+        <div>
+            <p className='text-center'>&copy; 2020 Act.Up.</p>
+        </div>
+    );
+};
+
+
 const Footer: React.StatelessComponent = () => {
   return (
       <footer className='footer mt-auto py-3 bg-dark text-white'>
-        <Grid columns={3} padded>
-            <Grid.Row padded color='black'>
+        <Grid verticalAlign='middle' columns={3}>
+            <Grid.Row>
                 <Grid.Column floated='left' width={6}>
-                    <Link class='footerlink' to='/about' style={{ marginLeft: '0.75em' }}>About</Link>
-                    {/*<Link class='footerlink' to='/contact' style={{ marginLeft: '0.75em' }}>Contact</Link>*/}
-                    <Link class='footerlink' to='/privacy' style={{ marginLeft: '0.75em' }}>Privacy</Link>
-                    <Link class='footerlink' to='/impact' style={{ marginLeft: '0.75em' }}>Impact</Link>
+                    <FooterLinks />
                 </Grid.Column>
                 <Grid.Column  width={5}>
-                    <p className="text-right">&copy; 2020 Act.Up</p>
+                    <FooterCopyright />
                 </Grid.Column>
-                <Grid.Column floated='right' width={2}>
-                    <SocialMediaIconsReact borderColor="rgba(255,255,255,1)" borderWidth="0" borderStyle="solid" icon="twitter" iconColor="rgba(255,255,255,1)" backgroundColor="rgba(255,255,255,0)" iconSize="4" roundness="32%" url="https://www.twitter.com/ActUpAdvocacy" size="25" />
-                    <SocialMediaIconsReact borderColor="rgba(255,255,255,1)" borderWidth="0" borderStyle="solid" icon="instagram" iconColor="rgba(255,255,255,1)" backgroundColor="rgba(255,255,255,0)" iconSize="4" roundness="32%" url="https://www.instagram.com/act.up.advocacy/" size="25" />
-                    <SocialMediaIconsReact borderColor="rgba(255,255,255,0)" borderWidth="0" borderStyle="solid" icon="github" iconColor="rgba(255,255,255,1)" backgroundColor="rgba(255,255,255,0)" iconSize="5" roundness="20%" url="https://github.com/act-up" size="25" />
+                <Grid.Column floated='right' width={3}>
+                    <SocialLinks />
                 </Grid.Column>
             </Grid.Row>
         </Grid>
@@ -31,4 +56,33 @@ const Footer: React.StatelessComponent = () => {
   );
 };
 
+const FooterMobile: React.StatelessComponent = () => {
+  return (
+      <footer className='footer mt-auto py-3 bg-dark text-white'>
+        <Grid centered columns={2}>
+            <Grid.Row>
+                <Grid.Column centered>
+                    <FooterLinks />
+                </Grid.Column>
+            </Grid.Row>
+            <Grid.Row centered columns={3}>
+                <Grid.Column>
+                    <FooterCopyright />
+                </Grid.Column>
+            </Grid.Row>
+            <Grid.Row centered columns={3}>
+                <Grid.Column>
+                    <SocialLinks />
+                </Grid.Column>
+            </Grid.Row>
+        </Grid>
+      </footer>
+
+  );
+};
 export default Footer;
+
+export {
+    Footer,
+    FooterMobile,
+}
