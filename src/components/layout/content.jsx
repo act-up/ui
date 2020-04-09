@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import IssueContext from './context'
 import Intro from '../pages/intro'
-import Issue from '../pages/issue'
 
 // Temporary static issue pages
 import Issue1 from '../pages/issues/1';

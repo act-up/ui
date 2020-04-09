@@ -18,7 +18,7 @@ class Sidebar extends Component {
         let value = this.context;
 
         let issue1_name = "Trader Joe's: Please pay your workers hazard pay during COVID-19 pandemic!";
-        let issue2_name = "CA Governor Gavin Newsome: Please categorize grocery workers as essential workers during COVID-19 pandemic!";
+        let issue2_name = "CA Governor Gavin Newsom: Please require hazard pay for grocery workers during the COVID-19 pandemic!";
 
         const { activeItem } = this.state
 

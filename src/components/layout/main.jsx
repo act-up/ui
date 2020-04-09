@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Sidebar from './sidebar';
 import Content from './content';
 import IssueContext from './context';
+import Issues from './issues';
+import Intro from '../pages/intro';
 
 // Semantic UI layout and styling
-import { Responsive, Grid } from 'semantic-ui-react';
-import MobileDetect from "mobile-detect";
+import { Grid } from 'semantic-ui-react';
 
 class Main extends Component {
 
@@ -14,8 +15,6 @@ class Main extends Component {
     render() {
 
         return(
-
-            <Responsive>
 
             <IssueContext.Consumer>
             {value => (
@@ -36,39 +35,28 @@ class Main extends Component {
             )}
             </IssueContext.Consumer>
 
-            </Responsive>
-        )
 
+        )
     }
 }
 export default Main;
 
-
-
-
-
-// Mobile vs desktop responsive
-
-const getWidthFactory = isMobileFromSSR => () => {
-  const isSSR = typeof window === "undefined";
-  const ssrValue = isMobileFromSSR
-    ? Responsive.onlyMobile.maxWidth
-    : Responsive.onlyTablet.minWidth;
-
-  return isSSR ? ssrValue : window.innerWidth;
+const MainMobile: Component = () => {
+    return (
+        <IssueContext.Consumer>
+        {value => (
+            <div>
+            <Intro />
+                <IssueContext.Provider value={value}>
+                    <Issues />
+                </IssueContext.Provider>
+            </div>
+        )}
+        </IssueContext.Consumer>
+    );
 };
 
-const getInitialProps = async ({ req }) => {
-  const md = new MobileDetect(req.headers["user-agent"]);
-  const isMobileFromSSR = !!md.mobile();
-
-  return {
-    isMobileFromSSR,
-    deviceInfo: {
-      mobile: md.mobile(),
-      tablet: md.tablet(),
-      os: md.os(),
-      userAgent: md.userAgent()
-    }
-  };
-};
+export {
+    Main,
+    MainMobile,
+}

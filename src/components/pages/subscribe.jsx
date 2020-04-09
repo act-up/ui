@@ -111,7 +111,7 @@ const SendinblueForm = () => {
                 </div>
                 <p style={{fontSize: 14, textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#687484', backgroundColor: 'transparent', borderWidth: 0}}>
                   We use Sendinblue as our mailing list platform. By Clicking below to submit this form, you acknowledge that the information you provided will be transferred to Sendinblue for processing in accordance with their
-                  &nbsp;<a target="_blank" class="clickable_link" href="https://www.sendinblue.com/legal/termsofuse/">terms of use</a>.
+                  &nbsp;<a target="_blank" rel="noopener noreferrer" class="clickable_link" href="https://www.sendinblue.com/legal/termsofuse/">terms of use</a>.
                 </p>
               </div>
             </div>

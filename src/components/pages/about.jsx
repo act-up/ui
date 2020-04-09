@@ -45,22 +45,22 @@ const AboutTeam = () => {
         </Grid.Row>
         <Grid.Row>
             <Grid.Column width={4} floated='left'>
+                <Image src='https://raw.githubusercontent.com/act-up/ui/static_site/public/img/francesca.jpg' size='small' />
+            </Grid.Column>
+            <Grid.Column width={12} floated='left'>
+                <p> Francesca is a motorcycle mechanic, dancer, adventurer, and dog enthusiast who has gotten really tired of feeling like modern activism mostly consists of shouting into the void. As a person who cares deeply about the environment, animals, and leaving things better than you found them, she joined Act.Up to help increase accessibility to people who want to make a difference. You can find her on Instagram at <a href="https://www.instagram.com/tigerbeatdown/" target="_blank" rel="noopener noreferrer">@tigerbeatdown</a>.
+                </p>
+            </Grid.Column>
+        </Grid.Row>
+        {/*}<Grid.Row>
+            <Grid.Column width={4} floated='left'>
                 <Image src='https://raw.githubusercontent.com/act-up/ui/static_site/public/img/antonella.jpg' size='small' />
             </Grid.Column>
             <Grid.Column width={12} floated='left'>
                 <p> Mugdha
                 </p>
             </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-            <Grid.Column width={4} floated='left'>
-                <Image src='https://raw.githubusercontent.com/act-up/ui/static_site/public/img/antonella.jpg' size='small' />
-            </Grid.Column>
-            <Grid.Column width={12} floated='left'>
-                <p> Francesca
-                </p>
-            </Grid.Column>
-        </Grid.Row>
+        </Grid.Row>*/}
     </Grid>
     </div>
     );

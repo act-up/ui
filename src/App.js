@@ -6,7 +6,7 @@ import IssueContext from './components/layout/context';
 
 // Layout components
 import { NavBarDesktop } from './components/layout/navigation';
-import Main from './components/layout/main';
+import { Main, MainMobile } from './components/layout/main';
 import { Footer, FooterMobile } from './components/layout/footer';
 
 // Static Pages
@@ -17,6 +17,8 @@ import { Impact, ImpactMobile } from './components/pages/impact';
 import { Subscribe, SubscribeMobile } from './components/pages/subscribe';
 import Suggestions from './components/pages/suggestions';
 import Donate from './components/pages/donate';
+
+import Issues from './components/layout/issues';
 
 // Semantic UI layout and styling
 import { Segment, Container, Sidebar, Responsive, Menu, Image, Icon } from 'semantic-ui-react';
@@ -118,6 +120,7 @@ class App extends Component {
         .catch(console.log)
     }*/
 
+
     render() {
 
         console.log("visible: ", this.state.visible);
@@ -167,7 +170,7 @@ class App extends Component {
                         <IssueContext.Provider value={this.state, this.onToggle}>
 
                             <Menu borderless>
-                              <Menu.Item>
+                              <Menu.Item as={Link} to='/'>
                                 <Image size="small" src="https://raw.githubusercontent.com/act-up/ui/master/public/logo.png" />
                               </Menu.Item>
                               <Menu.Item position="right" onClick={this.handleSidebarToggle()}>
@@ -186,6 +189,9 @@ class App extends Component {
                                   visible={this.state.visible}
                                   width='thin'>
                                   <Menu.Item as={Link} to='/' onClick={this.handleSidebarToggle()}>
+                                    Home
+                                  </Menu.Item>
+                                  <Menu.Item as={Link} to='/issues' onClick={this.handleSidebarToggle()}>
                                     Active Issues
                                   </Menu.Item>
                                   <Menu.Item as={Link} to='/subscribe' onClick={this.handleSidebarToggle()}>
@@ -200,7 +206,12 @@ class App extends Component {
                                 <Switch>
                                     <Route exact path='/'>
                                         <IssueContext.Provider value={this.state}>
-                                            <Main  />
+                                            <MainMobile  />
+                                        </IssueContext.Provider>
+                                    </Route>
+                                    <Route exact path='/issues'>
+                                        <IssueContext.Provider value={this.state}>
+                                            <Issues />
                                         </IssueContext.Provider>
                                     </Route>
                                     <Route exact path='/about' component={AboutMobile}></Route>

@@ -29,7 +29,7 @@ const SocialLinks: React.StatelessComponent = () => {
 const FooterCopyright: React.StatelessComponent = () => {
     return (
         <div>
-            <p className='text-center'>&copy; 2020 Act.Up.</p>
+            <p style={{fontSize: 10, textAlign: 'center'}}>&copy; 2020. Act.Up is a nonprofit association that helps you take action for change.</p>
         </div>
     );
 };
