@@ -1,14 +1,23 @@
-import React, { Component, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 
 // Semantic UI layout and styling
 import { Container, Grid, Segment, Header, Button, Label } from 'semantic-ui-react';
+
+var email = 'nhigh@traderjoes.com'
+var subject = 'Hazard%20Pay%20for%20Workers%20during%20COVID-19'
+var letter_body = "Dear Ms. High,\n\n I’m writing to express my concern that the workers at Trader Joe's are not receiving hazard pay during the COVID-19 pandemic. These workers are on the front lines of the disease. Over the course of a single shift, they are exposed to countless people who may be infected--whether customers, co-workers, or someone in the supply chain--thereby increasing the risk to their own well being, as well as anyone else they come in contact with. These workers are unable to follow any-shelter at-home mandate, because their jobs are simply too important. Their pay should reflect this. A one-time bonus is not enough. A very small increase is not enough. These workers are people with full lives and loved ones, who are putting their lives at risk doing a job that our society needs done in order to function. It is your responsibility as an employer to provide a safe work environment for your employees, as well as for your customers.\n\nAs a long-time Trader Joe's customer, I implore you to do the right thing and provide your employees with hazard pay, protective equipment, and appropriate sick leave. Your customers stand with your workers.\n\nSincerely,\n\nA concerned human"
+
+
+var mailto_link = 'mailto:' + email + '?subject=' + subject + '&body=' + encodeURIComponent(letter_body);
+
 
 class Issue1 extends Component {
 
     render() {
 
-
+        let letter_display = letter_body.split('\n').map((item, i) => {
+            return <p>{item}</p>;
+        });
 
         return(
             <Container text>
@@ -22,19 +31,13 @@ class Issue1 extends Component {
 
                 <Header as='h3'>Template Letter:</Header>
 
-                <p>We have provided a template letter below. Copy the letter, click the contact button to go to the Trader Joe's contact page, and feel free to edit the letter to add a personal touch.
-                On the contact page, you will have to provide your name, your location, and an email to send the letter. We recommend selecting "Other" under "Type of Feedback".</p>
+                <p>We have provided a template letter below. Click the contact button to send the letter as an email to Nicole High, Director of Customer Relations Communication at Trader Joe's.</p>
 
                 <Segment>
                     <Label attached='top' color='blue'>Feel free to add a personal touch to the template below. Please remember to be kind and civil.</Label>
 
-                    <p>Dear Trader Joe's,</p>
-
-                    <p>I’m writing to express my concern that Trader Joe's workers are not receiving hazard pay during the COVID-19 pandemic. These workers are on the front lines of the disease. Over the course of a single shift, they are exposed to countless people who may be infected--whether customers, co-workers, or someone in the supply chain--thereby increasing the risk to their own well being, as well as anyone else they come in contact with. These workers are unable to follow any-shelter at-home mandate, because their jobs are simply too important. Their pay should reflect this. A one-time bonus is not enough. A very small increase is not enough. These workers are people with full lives and loved ones, who are putting their lives at risk doing a job that our society needs done in order to function. It is your responsibility as an employer to provide a safe work environment for your employees, as well as for your customers. As a long-time Trader Joe's customer, I implore you to do the right thing and provide your employees with hazard pay, protective equipment, and appropriate sick leave.</p>
-
-                    <p>Sincerely,</p>
-
-                    <p>A concerned human</p>
+                    <p>&nbsp;</p>
+                    {letter_display}
 
                 </Segment>
 
@@ -42,7 +45,7 @@ class Issue1 extends Component {
 
                 <Grid>
                     <Grid.Row centered>
-                        <Button color='blue' variant='primary'><a className='whitelink' href='https://www.traderjoes.com/contact-us/product-feedback' target='_blank' rel='noopener noreferrer'>Go to Contact Page</a></Button>
+                        <Button color='blue' variant='primary'><a class='whitelink' href={mailto_link} target='_blank' rel='noopener noreferrer'>Email Trader Joe's</a></Button>
                     </Grid.Row>
 
                     <Grid.Row></Grid.Row>

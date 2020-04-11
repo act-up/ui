@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Semantic UI layout and styling
-import { Container, Grid, Header, Button, Message } from 'semantic-ui-react';
+import { Grid, Header, Button, Message } from 'semantic-ui-react';
 
 const Intro: React.StatelessComponent = () => {
     return(
@@ -48,6 +48,7 @@ const Intro: React.StatelessComponent = () => {
                 <Button color='blue' variant='primary'><Link class='whitelink' to='/suggestions'>Suggest a New Campaign</Link></Button>
             </Grid.Row>*/}
             </Grid.Column>
+            <Grid.Row></Grid.Row>
         </Grid>
 
 

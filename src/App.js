@@ -21,7 +21,7 @@ import Donate from './components/pages/donate';
 import Issues from './components/layout/issues';
 
 // Semantic UI layout and styling
-import { Segment, Container, Sidebar, Responsive, Menu, Image, Icon } from 'semantic-ui-react';
+import { Segment, Sidebar, Responsive, Menu, Image, Icon } from 'semantic-ui-react';
 
 // Twitter API
 /*var Twitter = require('twitter');

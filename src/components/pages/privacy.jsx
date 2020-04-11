@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Semantic UI layout and styling
-import { Container, Grid, Header } from 'semantic-ui-react';
+import { Grid, Header } from 'semantic-ui-react';
 
 const Privacy = () => (
   <div className='privacy'>

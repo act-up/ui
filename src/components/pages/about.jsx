@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Semantic UI layout and styling
-import { Container, Grid, Header, Image } from 'semantic-ui-react';
+import { Grid, Header, Image } from 'semantic-ui-react';
 
 var teamColumnWidth = 3;
 

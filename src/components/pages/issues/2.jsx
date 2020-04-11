@@ -1,10 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 
 // Semantic UI layout and styling
 import { Container, Grid, Header, Button, Segment, Label } from 'semantic-ui-react';
 
-const Issue2: React.StatelessComponent = () => {
+var letter_body = "Dear Governor Newsom,\n\nI’m writing to express my concern that many grocery store workers in the state of California are not receiving hazard pay during the COVID-19 pandemic. These workers are on the front lines of the disease. Over the course of a single shift, they are exposed to countless people who may be infected--whether customers, co-workers, or someone in the supply chain--thereby increasing the risk to their own well being,as well as anyone else they come in contact with. Because the jobs these workers perform are simply too important, they are unable to follow any-shelter at-home mandate, and their pay should reflect this. A one-time bonus is not enough. A very small increase is not enough. These workers are people with full lives and loved ones, who are putting their lives at risk doing a job that our society needs done in order to function. Due to the highly contagious nature of this disease, and the fact that everyone needs to eat (including the elderly, immunocompromised, and other vulnerable people), I implore you to require grocery stores to require a safe work environment and provide their employees with hazard pay, protective equipment, and appropriate sick leave.\n\nSincerely,\n\nA concerned human"
+
+
+class Issue2 extends Component {
+
+    render() {
+
+        let letter_display = letter_body.split('\n').map((item, i) => {
+            return <p>{item}</p>;
+        });
+
+
     return(
         <Container text>
             <Header as='h1'>CA Governor Gavin Newsom: Please require hazard pay for grocery workers during the COVID-19 pandemic!</Header>
@@ -25,13 +35,8 @@ const Issue2: React.StatelessComponent = () => {
             <Segment>
                 <Label attached='top' color='blue'>Feel free to add a personal touch to the template below. Please remember to be kind and civil.</Label>
 
-                <p>Dear Governor Newsom,</p>
-
-                <p>I’m writing to express my concern that many grocery store workers in the state of California are not receiving hazard pay during the COVID-19 pandemic. These workers are on the front lines of the disease. Over the course of a single shift, they are exposed to countless people who may be infected--whether customers, co-workers, or someone in the supply chain--thereby increasing the risk to their own well being,as well as anyone else they come in contact with. Because the jobs these workers perform are simply too important, they are unable to follow any-shelter at-home mandate, and their pay should reflect this. A one-time bonus is not enough. A very small increase is not enough. These workers are people with full lives and loved ones, who are putting their lives at risk doing a job that our society needs done in order to function. Due to the highly contagious nature of this disease, and the fact that everyone needs to eat (including the elderly, immunocompromised, and other vulnerable people), I implore you to require grocery stores to require a safe work environment and provide their employees with hazard pay, protective equipment, and appropriate sick leave.</p>
-
-                <p>Sincerely,</p>
-
-                <p>A concerned human</p>
+                <p>&nbsp;</p>
+                {letter_display}
 
             </Segment>
 
@@ -39,14 +44,15 @@ const Issue2: React.StatelessComponent = () => {
 
             <Grid>
                 <Grid.Row centered>
-                    <Button color='blue' variant='primary'><a class='whitelink' href='https://govapps.gov.ca.gov/gov40mail/' target='_blank' rel='noopener noreferrer'>Go to Contact Page</a></Button>
+                    <Button color='blue' variant='primary'><a className='whitelink' href='https://govapps.gov.ca.gov/gov40mail/' target='_blank' rel='noopener noreferrer'>Go to Contact Page</a></Button>
                 </Grid.Row>
 
                 <Grid.Row></Grid.Row>
 
             </Grid>
         </Container>
-    );
+        );
+    };
 };
 
 export default Issue2;
