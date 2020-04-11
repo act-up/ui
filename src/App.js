@@ -117,7 +117,7 @@ class App extends Component {
                 active_issues: data,
             })
         })
-        .catch(console.log)
+        .catch(error => console.log('Error: ', error))
     }*/
 
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 // Semantic UI layout and styling
 import { Container, Grid, Segment, Header, Button, Label } from 'semantic-ui-react';
@@ -13,10 +14,53 @@ var mailto_link = 'mailto:' + email + '?subject=' + subject + '&body=' + encodeU
 
 class Issue1 extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+                        num_forms: 0,
+                        num_emails: 0,
+                        num_twitter_dms: 0
+                    };
+        this.emailButtonClicked = this.emailButtonClicked.bind(this);
+        this.patchData = this.patchData.bind(this);
+    }
+
+    componentDidMount() {
+        // Use axios to get current statistics
+        axios.get('https://actup-273804.uc.r.appspot.com/statistics/1')
+        .then(response => {
+            this.setState({
+                num_forms: response.data.num_forms,
+                num_emails: response.data.num_emails,
+                num_twitter_dms: response.data.num_twitter_dms
+            });
+        })
+        .catch(error => console.log('Error: ', error))
+    }
+
+    emailButtonClicked(event) {
+        var new_num_emails = parseInt(this.state.num_emails) + 1;
+        this.setState({ num_emails: new_num_emails });
+        this.patchData();
+    }
+
+    patchData() {
+        axios.patch('https://actup-273804.uc.r.appspot.com/statistics/1', {
+            num_emails: this.state.num_emails
+        }).then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
+    }
+
+
     render() {
 
+        console.log(this.state);
+
         let letter_display = letter_body.split('\n').map((item, i) => {
-            return <p>{item}</p>;
+            return <p key={i}>{item}</p>;
         });
 
         return(
@@ -45,7 +89,7 @@ class Issue1 extends Component {
 
                 <Grid>
                     <Grid.Row centered>
-                        <Button color='blue' variant='primary'><a class='whitelink' href={mailto_link} target='_blank' rel='noopener noreferrer'>Email Trader Joe's</a></Button>
+                        <Button onClick={this.emailButtonClicked} color='blue' variant='primary'><a className='whitelink' href={mailto_link} target='_blank' rel='noopener noreferrer'>Email Trader Joe's</a></Button>
                     </Grid.Row>
 
                     <Grid.Row></Grid.Row>

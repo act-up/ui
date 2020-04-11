@@ -46,7 +46,7 @@ const Footer: React.StatelessComponent = () => {
                 <Grid.Column  width={5}>
                     <FooterCopyright />
                 </Grid.Column>
-                <Grid.Column floated='right' width={5}>
+                <Grid.Column floated='right' textAlign='right' width={5}>
                     <SocialLinks />
                 </Grid.Column>
             </Grid.Row>

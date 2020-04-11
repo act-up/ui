@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 
 // Semantic UI layout and styling
 import { Container, Grid, Header, Button, Segment, Label } from 'semantic-ui-react';
@@ -8,10 +10,52 @@ var letter_body = "Dear Governor Newsom,\n\nI’m writing to express my concern 
 
 class Issue2 extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+                        num_forms: 0,
+                        num_emails: 0,
+                        num_twitter_dms: 0
+                    };
+        this.emailButtonClicked = this.emailButtonClicked.bind(this);
+        this.patchData = this.patchData.bind(this);
+    }
+
+    componentDidMount() {
+        // Use axios to get current statistics
+        axios.get('https://actup-273804.uc.r.appspot.com/statistics/2')
+        .then(response => {
+            this.setState({
+                num_forms: response.data.num_forms,
+                num_emails: response.data.num_emails,
+                num_twitter_dms: response.data.num_twitter_dms
+            });
+        })
+        .catch(error => console.log('Error: ', error))
+    }
+
+    emailButtonClicked(event) {
+        var new_num_forms = parseInt(this.state.num_forms) + 1;
+        this.setState({ num_forms: new_num_forms });
+        this.patchData();
+    }
+
+    patchData() {
+        axios.patch('https://actup-273804.uc.r.appspot.com/statistics/2', {
+            num_forms: this.state.num_forms
+        }).then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
+    }
+
     render() {
 
+        console.log(this.state);
+
         let letter_display = letter_body.split('\n').map((item, i) => {
-            return <p>{item}</p>;
+            return <p key={i}>{item}</p>;
         });
 
 
@@ -44,7 +88,7 @@ class Issue2 extends Component {
 
             <Grid>
                 <Grid.Row centered>
-                    <Button color='blue' variant='primary'><a className='whitelink' href='https://govapps.gov.ca.gov/gov40mail/' target='_blank' rel='noopener noreferrer'>Go to Contact Page</a></Button>
+                    <Button onClick={this.emailButtonClicked} color='blue' variant='primary'><a className='whitelink' href='https://govapps.gov.ca.gov/gov40mail/' target='_blank' rel='noopener noreferrer'>Go to Contact Page</a></Button>
                 </Grid.Row>
 
                 <Grid.Row></Grid.Row>
