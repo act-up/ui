@@ -109,8 +109,8 @@ class App extends Component {
         this.setState((prevState) => ({ visible: !prevState.visible }))
 
     // Fetch all active issues from api
-    /*componentDidMount() {
-        fetch('http://localhost:8080/issues')
+    componentDidMount() {
+        fetch('https://actup-273804.uc.r.appspot.com/issues')
         .then(res => res.json())
         .then((data) => {
             this.setState({
@@ -118,12 +118,14 @@ class App extends Component {
             })
         })
         .catch(console.log)
-    }*/
+    }
 
 
     render() {
 
         console.log("visible: ", this.state.visible);
+
+        console.log(this.state.active_issues)
 
         return (
             <div className="App">
