@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Semantic UI layout and styling
 import { Container, Grid, Header, Image } from 'semantic-ui-react';
+
+var teamColumnWidth = 3;
 
 const AboutDescription = () => {
     return (
@@ -23,15 +26,14 @@ const AboutTeam = () => {
     return (
     <div>
     <Grid.Row>
-        <p>We're always looking for justice-minded individuals to get involved. If you're interested in helping out, please email act [dot] up [dot] advocacy [at] gmail.com
-        (contact form coming soon!)</p>
+        <p>We're always looking for justice-minded individuals to get involved. If you're interested in helping out, please <Link className='clickable_link' to='/contact'> contact us</Link>.</p>
     </Grid.Row>
     <Grid.Row>
         <p>&nbsp;</p>
     </Grid.Row>
-    <Grid>
+    <Grid stackable centered columns={2}>
         <Grid.Row>
-            <Grid.Column width={4} floated='left'>
+            <Grid.Column width={teamColumnWidth} floated='left'>
                 <Image src='https://raw.githubusercontent.com/act-up/ui/static_site/public/img/antonella.jpg' size='small' />
             </Grid.Column>
             <Grid.Column width={12} floated='left'>
@@ -44,7 +46,7 @@ const AboutTeam = () => {
             </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-            <Grid.Column width={4} floated='left'>
+            <Grid.Column width={teamColumnWidth} floated='left'>
                 <Image src='https://raw.githubusercontent.com/act-up/ui/static_site/public/img/francesca.jpg' size='small' />
             </Grid.Column>
             <Grid.Column width={12} floated='left'>
@@ -98,15 +100,15 @@ export default About;
 
 const AboutMobile = () => {
     return (
-        <div className='about'>
-            <Container text>
+        <div className='MobileContentPadding'>
+            <Grid>
                 <Header as='h1'>About</Header>
                 <AboutDescription />
 
                 <Header as='h1'>Our Team</Header>
                 <AboutTeam />
 
-            </Container>
+            </Grid>
         </div>
     );
 };

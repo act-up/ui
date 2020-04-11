@@ -11,7 +11,7 @@ import { Footer, FooterMobile } from './components/layout/footer';
 
 // Static Pages
 import { About, AboutMobile } from './components/pages/about';
-import Contact from './components/pages/contact';
+import { Contact, ContactMobile } from './components/pages/contact';
 import { Privacy, PrivacyMobile } from './components/pages/privacy';
 import { Impact, ImpactMobile } from './components/pages/impact';
 import { Subscribe, SubscribeMobile } from './components/pages/subscribe';
@@ -128,11 +128,12 @@ class App extends Component {
         return (
             <div className="App">
 
-                {/* NAVIGATION BAR DESKTOP */}
-                <Segment basic>
-
                     {/* DESKTOP AND TABLET VIEW */}
                     <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+
+                    {/* NAVIGATION BAR DESKTOP */}
+                    <Segment basic>
+
                         <IssueContext.Provider value={this.state}>
                             <NavBarDesktop />
                         </IssueContext.Provider>
@@ -157,80 +158,78 @@ class App extends Component {
                             </Switch>
 
                         </Segment>
-                    </Responsive>
-                </Segment>
+                    </Segment>
+                </Responsive>
 
 
 
                 {/* NAVIGATION BAR MOBILE */}
-                <Container>
 
-                    {/* MOBILE RESPONSIVE VIEW */}
-                    <Responsive {...Responsive.onlyMobile}>
-                        <IssueContext.Provider value={this.state, this.onToggle}>
+                {/* MOBILE RESPONSIVE VIEW */}
+                <Responsive {...Responsive.onlyMobile}>
+                    <IssueContext.Provider value={this.state, this.onToggle}>
 
-                            <Menu borderless>
-                              <Menu.Item as={Link} to='/'>
-                                <Image size="small" src="https://raw.githubusercontent.com/act-up/ui/master/public/logo.png" />
+                        <Menu borderless>
+                          <Menu.Item as={Link} to='/'>
+                            <Image size="small" src="https://raw.githubusercontent.com/act-up/ui/master/public/logo.png" />
+                          </Menu.Item>
+                          <Menu.Item position="right" onClick={this.handleSidebarToggle()}>
+                            <Icon name="sidebar" />
+                          </Menu.Item>
+                        </Menu>
+
+                        <Sidebar.Pushable>
+                            {/*<VerticalSidebar visible={this.state.visible} /> */}
+                            <Sidebar
+                              as={Menu}
+                              animation='overlay'
+                              direction='right'
+                              icon='labeled'
+                              vertical
+                              visible={this.state.visible}
+                              width='thin'>
+                              <Menu.Item as={Link} to='/' onClick={this.handleSidebarToggle()}>
+                                Home
                               </Menu.Item>
-                              <Menu.Item position="right" onClick={this.handleSidebarToggle()}>
-                                <Icon name="sidebar" />
+                              <Menu.Item as={Link} to='/issues' onClick={this.handleSidebarToggle()}>
+                                Active Issues
                               </Menu.Item>
-                            </Menu>
+                              <Menu.Item as={Link} to='/subscribe' onClick={this.handleSidebarToggle()}>
+                                Subscribe
+                              </Menu.Item>
+                            </Sidebar>
 
-                            <Sidebar.Pushable as={Container} class='basic'>
-                                {/*<VerticalSidebar visible={this.state.visible} /> */}
-                                <Sidebar
-                                  as={Menu}
-                                  animation='overlay'
-                                  direction='right'
-                                  icon='labeled'
-                                  vertical
-                                  visible={this.state.visible}
-                                  width='thin'>
-                                  <Menu.Item as={Link} to='/' onClick={this.handleSidebarToggle()}>
-                                    Home
-                                  </Menu.Item>
-                                  <Menu.Item as={Link} to='/issues' onClick={this.handleSidebarToggle()}>
-                                    Active Issues
-                                  </Menu.Item>
-                                  <Menu.Item as={Link} to='/subscribe' onClick={this.handleSidebarToggle()}>
-                                    Subscribe
-                                  </Menu.Item>
-                                </Sidebar>
+                        <Sidebar.Pusher dimmed={this.state.dimmed && this.state.visible}>
 
-                            <Sidebar.Pusher dimmed={this.state.dimmed && this.state.visible}>
+                        {/* MAIN CONTENT MOBILE */}
+                        <Segment basic>
+                            <Switch>
+                                <Route exact path='/'>
+                                    <IssueContext.Provider value={this.state}>
+                                        <MainMobile  />
+                                    </IssueContext.Provider>
+                                </Route>
+                                <Route exact path='/issues'>
+                                    <IssueContext.Provider value={this.state}>
+                                        <Issues />
+                                    </IssueContext.Provider>
+                                </Route>
+                                <Route exact path='/about' component={AboutMobile}></Route>
+                                <Route exact path='/contact' component={ContactMobile}></Route>
+                                <Route exact path='/privacy' component={PrivacyMobile}></Route>
+                                <Route exact path='/impact' component={ImpactMobile}></Route>
+                                <Route exact path='/subscribe' component={SubscribeMobile}></Route>
+                                <Route exact path='/suggestions' component={Suggestions}></Route>
+                                <Route exact path='/donate' component={Donate}></Route>
+                                {/*<Route exact path='/1' component={Issue1}></Route>
+                                <Route exact path='/2' component={Issue2}></Route>*/}
+                            </Switch>
+                        </Segment>
+                    </Sidebar.Pusher>
+                </Sidebar.Pushable>
+                </IssueContext.Provider>
 
-                            {/* MAIN CONTENT MOBILE */}
-                            <Segment basic>
-                                <Switch>
-                                    <Route exact path='/'>
-                                        <IssueContext.Provider value={this.state}>
-                                            <MainMobile  />
-                                        </IssueContext.Provider>
-                                    </Route>
-                                    <Route exact path='/issues'>
-                                        <IssueContext.Provider value={this.state}>
-                                            <Issues />
-                                        </IssueContext.Provider>
-                                    </Route>
-                                    <Route exact path='/about' component={AboutMobile}></Route>
-                                    <Route exact path='/contact' component={Contact}></Route>
-                                    <Route exact path='/privacy' component={PrivacyMobile}></Route>
-                                    <Route exact path='/impact' component={ImpactMobile}></Route>
-                                    <Route exact path='/subscribe' component={SubscribeMobile}></Route>
-                                    <Route exact path='/suggestions' component={Suggestions}></Route>
-                                    <Route exact path='/donate' component={Donate}></Route>
-                                    {/*<Route exact path='/1' component={Issue1}></Route>
-                                    <Route exact path='/2' component={Issue2}></Route>*/}
-                                </Switch>
-                            </Segment>
-                        </Sidebar.Pusher>
-                    </Sidebar.Pushable>
-                    </IssueContext.Provider>
-
-                    </Responsive>
-                </Container>
+                </Responsive>
 
 
                 {/* FOOTER */}

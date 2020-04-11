@@ -9,7 +9,7 @@ const FooterLinks: React.StatelessComponent = () => {
     return (
         <div>
             <Link className='footerlink' to='/about' style={{ marginLeft: '0.75em' }}>About</Link>
-            {/*<Link className='footerlink' to='/contact' style={{ marginLeft: '0.75em' }}>Contact</Link>*/}
+            <Link className='footerlink' to='/contact' style={{ marginLeft: '0.75em' }}>Contact</Link>
             <Link className='footerlink' to='/privacy' style={{ marginLeft: '0.75em' }}>Privacy</Link>
             <Link className='footerlink' to='/impact' style={{ marginLeft: '0.75em' }}>Impact</Link>
         </div>
@@ -40,13 +40,13 @@ const Footer: React.StatelessComponent = () => {
       <footer className='footer mt-auto py-3 bg-dark text-white'>
         <Grid verticalAlign='middle' columns={3}>
             <Grid.Row>
-                <Grid.Column floated='left' width={6}>
+                <Grid.Column floated='left' width={5}>
                     <FooterLinks />
                 </Grid.Column>
                 <Grid.Column  width={5}>
                     <FooterCopyright />
                 </Grid.Column>
-                <Grid.Column floated='right' width={3}>
+                <Grid.Column floated='right' width={5}>
                     <SocialLinks />
                 </Grid.Column>
             </Grid.Row>
@@ -59,21 +59,15 @@ const Footer: React.StatelessComponent = () => {
 const FooterMobile: React.StatelessComponent = () => {
   return (
       <footer className='footer mt-auto py-3 bg-dark text-white'>
-        <Grid centered columns={2}>
-            <Grid.Row>
-                <Grid.Column centered>
-                    <FooterLinks />
-                </Grid.Column>
+        <Grid centered columns={1}>
+            <Grid.Row centered>
+                <FooterLinks />
             </Grid.Row>
-            <Grid.Row centered columns={3}>
-                <Grid.Column>
-                    <FooterCopyright />
-                </Grid.Column>
+            <Grid.Row centered >
+                <FooterCopyright />
             </Grid.Row>
-            <Grid.Row centered columns={3}>
-                <Grid.Column>
-                    <SocialLinks />
-                </Grid.Column>
+            <Grid.Row centered>
+                <SocialLinks />
             </Grid.Row>
         </Grid>
       </footer>

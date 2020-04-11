@@ -18,7 +18,7 @@ class Issue1 extends Component {
                 grocery workers' jobs are essential to ensuring we have uninterrupted access to food and other critical supplies during this crisis. These workers are at great risk
                 of being exposed to the virus, and of transmitting the virus to their loved ones.</p>
 
-                <p>Grocery workers deserve hazard pay for risking their health to perform an essential societal function. Despite their workers' front line roles in this global health crisis, <a class="clickable_link" href="https://www.coworker.org/petitions/trader-joe-s-crew-needs-hazard-pay-now" target="_blank" rel='noopener noreferrer'>Trader Joe's has refused</a> to pay its workers hazard pay. If you're a customer of Trader Joe's, please take a few seconds to contact them using the letter below to speak up for the rights of their workers. </p>
+                <p>Grocery workers deserve hazard pay for risking their health to perform an essential societal function. Despite their workers' front line roles in this global health crisis, <a className="clickable_link" href="https://www.coworker.org/petitions/trader-joe-s-crew-needs-hazard-pay-now" target="_blank" rel='noopener noreferrer'>Trader Joe's has refused</a> to pay its workers hazard pay. If you're a customer of Trader Joe's, please take a few seconds to contact them using the letter below to speak up for the rights of their workers. </p>
 
                 <Header as='h3'>Template Letter:</Header>
 
@@ -42,7 +42,7 @@ class Issue1 extends Component {
 
                 <Grid>
                     <Grid.Row centered>
-                        <Button color='blue' variant='primary'><a class='whitelink' href='https://www.traderjoes.com/contact-us/product-feedback' target='_blank' rel='noopener noreferrer'>Go to Contact Page</a></Button>
+                        <Button color='blue' variant='primary'><a className='whitelink' href='https://www.traderjoes.com/contact-us/product-feedback' target='_blank' rel='noopener noreferrer'>Go to Contact Page</a></Button>
                     </Grid.Row>
 
                     <Grid.Row></Grid.Row>

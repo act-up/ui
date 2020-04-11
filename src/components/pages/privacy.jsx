@@ -18,10 +18,10 @@ const Privacy = () => (
 
               <Header as='h2'>Email List Subscriptions</Header>
 
-              <p>If you choose to opt-in to our email list we will store your email, but we will never share this information with anyone. You can unsubscribe from our emails at any time. We use Sendinblue as our mailing list platform. If you <Link class='clickable_link' to='/subscribe'>subscribe</Link>, you acknowledge that the information you provided will be transferred to Sendinblue for processing in accordance with their <a target="_blank" rel="noopener noreferrer" class="clickable_link" href="https://www.sendinblue.com/legal/termsofuse/">terms of use</a>.
+              <p>If you choose to opt-in to our email list we will store your email, but we will never share this information with anyone. You can unsubscribe from our emails at any time. We use Sendinblue as our mailing list platform. If you <Link className='clickable_link' to='/subscribe'>subscribe</Link>, you acknowledge that the information you provided will be transferred to Sendinblue for processing in accordance with their <a target="_blank" rel="noopener noreferrer" className="clickable_link" href="https://www.sendinblue.com/legal/termsofuse/">terms of use</a>.
               </p>
 
-              <p>We have implemented reCAPTCHA v3 on this site to validate subscriptions to our email list. If you subscribe to our emails, your use of reCAPTCHA v3 is subject to the <a class='clickable_link' target='_blank' rel="noopener noreferrer" href='https://www.google.com/policies/privacy/'>Google Privacy Policy</a> and <a class='clickable_link' target='_blank' rel="noopener noreferrer" href='https://www.google.com/policies/terms/'>Terms of Use</a>. reCAPTCHA will only be used to fight spam and abuse on this site.</p>
+              <p>We have implemented reCAPTCHA v3 on this site to validate subscriptions to our email list. If you subscribe to our emails, your use of reCAPTCHA v3 is subject to the <a className='clickable_link' target='_blank' rel="noopener noreferrer" href='https://www.google.com/policies/privacy/'>Google Privacy Policy</a> and <a className='clickable_link' target='_blank' rel="noopener noreferrer" href='https://www.google.com/policies/terms/'>Terms of Use</a>. reCAPTCHA will only be used to fight spam and abuse on this site.</p>
 
 
 
@@ -37,8 +37,8 @@ const Privacy = () => (
 export default Privacy;
 
 const PrivacyMobile = () => (
-  <div className='privacy'>
-    <Container text>
+  <div className='MobileContentPadding'>
+    <Grid>
 
       <Header as='h1'>Privacy</Header>
 
@@ -48,13 +48,13 @@ const PrivacyMobile = () => (
 
       <Header as='h2'>Email List Subscriptions</Header>
 
-      <p>If you choose to opt-in to our email list we will store your email, but we will never share this information with anyone. You can unsubscribe from our emails at any time. We use Sendinblue as our mailing list platform. If you <Link class='clickable_link' to='/subscribe'>subscribe</Link>, you acknowledge that the information you provided will be transferred to Sendinblue for processing in accordance with their <a target="_blank" class="clickable_link" href="https://www.sendinblue.com/legal/termsofuse/" rel='noopener noreferrer'>terms of use</a>.
+      <p>If you choose to opt-in to our email list we will store your email, but we will never share this information with anyone. You can unsubscribe from our emails at any time. We use Sendinblue as our mailing list platform. If you <Link className='clickable_link' to='/subscribe'>subscribe</Link>, you acknowledge that the information you provided will be transferred to Sendinblue for processing in accordance with their <a target="_blank" className="clickable_link" href="https://www.sendinblue.com/legal/termsofuse/" rel='noopener noreferrer'>terms of use</a>.
       </p>
 
-      <p>We have implemented reCAPTCHA v3 on this site to validate subscriptions to our email list. If you subscribe to our emails, your use of reCAPTCHA v3 is subject to the <a class='clickable_link' target='_blank' rel='noopener noreferrer' href='https://www.google.com/policies/privacy/'>Google Privacy Policy</a> and <a class='clickable_link' target='_blank'  rel='noopener noreferrer' href='https://www.google.com/policies/terms/'>Terms of Use</a>. reCAPTCHA will only be used to fight spam and abuse on this site.</p>
+      <p>We have implemented reCAPTCHA v3 on this site to validate subscriptions to our email list. If you subscribe to our emails, your use of reCAPTCHA v3 is subject to the <a className='clickable_link' target='_blank' rel='noopener noreferrer' href='https://www.google.com/policies/privacy/'>Google Privacy Policy</a> and <a className='clickable_link' target='_blank'  rel='noopener noreferrer' href='https://www.google.com/policies/terms/'>Terms of Use</a>. reCAPTCHA will only be used to fight spam and abuse on this site.</p>
 
+      </Grid>
 
-  </Container>
 
   </div>
 );

@@ -82,6 +82,21 @@ html {
 
 
 #------------------------------------------------------
+/* CONTENT LAYOUT STYLES */
+#------------------------------------------------------
+
+    .MobileContentPadding {
+        margin-bottom: 2.5rem !important;
+    }
+
+    .MobileContentNoTopMargin {
+        margin-top: 0em !important;
+    }
+
+
+
+
+#------------------------------------------------------
 
 .App {
   text-align: center;

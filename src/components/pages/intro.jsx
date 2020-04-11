@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Semantic UI layout and styling
-import { Container, Grid, Header, Button } from 'semantic-ui-react';
+import { Container, Grid, Header, Button, Message } from 'semantic-ui-react';
 
 const Intro: React.StatelessComponent = () => {
     return(
@@ -19,12 +19,17 @@ const Intro: React.StatelessComponent = () => {
                 pay attention.
             </p>
 
+            <Message visible color='teal'>This site is currently in development. Please forgive any bugs or UI issues
+            as we will be working to correct them in the coming weeks.</Message>
+
             <p>
                 Select an active campaign on the left. We provide a letter template outlining the issue and a link to the
                 best contact page to email the company. Some companies also use Twitter to communicate with customers, and we will
                 include a Twitter Direct Message link in this case. We encourage you to reach out in as many ways as possible!
                 The more we speak up, the more incentive they have to listen!
             </p>
+
+
 
             <p>
                 We are just getting started, and will be expanding this site with new issues and new capabilities in the coming months.
