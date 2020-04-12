@@ -18,7 +18,6 @@ class Issue2 extends Component {
                         num_twitter_dms: 0
                     };
         this.emailButtonClicked = this.emailButtonClicked.bind(this);
-        this.patchData = this.patchData.bind(this);
     }
 
     componentDidMount() {
@@ -34,25 +33,27 @@ class Issue2 extends Component {
         .catch(error => console.log('Error: ', error))
     }
 
-    emailButtonClicked(event) {
-        var new_num_forms = parseInt(this.state.num_forms) + 1;
-        this.setState({ num_forms: new_num_forms });
-        this.patchData();
-    }
 
-    patchData() {
+    // Send patch request to update number of webforms when button clicked
+    emailButtonClicked(event) {
+        var new_num_forms = 1 + this.state.num_forms;
+        var patchData = {"num_forms": new_num_forms};
+
         axios.patch('https://actup-273804.uc.r.appspot.com/statistics/2', {
-            num_forms: this.state.num_forms
+            "num_forms": new_num_forms
         }).then((response) => {
             console.log(response);
         }, (error) => {
             console.log(error);
         });
+
+        this.setState({num_forms: new_num_forms})
+
     }
 
     render() {
 
-        console.log(this.state);
+        console.log("state: ", this.state);
 
         let letter_display = letter_body.split('\n').map((item, i) => {
             return <p key={i}>{item}</p>;

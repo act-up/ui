@@ -22,7 +22,6 @@ class Issue1 extends Component {
                         num_twitter_dms: 0
                     };
         this.emailButtonClicked = this.emailButtonClicked.bind(this);
-        this.patchData = this.patchData.bind(this);
     }
 
     componentDidMount() {
@@ -38,26 +37,28 @@ class Issue1 extends Component {
         .catch(error => console.log('Error: ', error))
     }
 
-    emailButtonClicked(event) {
-        var new_num_emails = parseInt(this.state.num_emails) + 1;
-        this.setState({ num_emails: new_num_emails });
-        this.patchData();
-    }
 
-    patchData() {
+    // Send patch request to update number of emails when button clicked
+    emailButtonClicked(event) {
+        var new_num_emails = 1 + this.state.num_emails;
+        var patchData = {"num_emails": new_num_emails};
+
         axios.patch('https://actup-273804.uc.r.appspot.com/statistics/1', {
-            num_emails: this.state.num_emails
+            "num_emails": new_num_emails
         }).then((response) => {
             console.log(response);
         }, (error) => {
             console.log(error);
         });
+
+        this.setState({num_emails: new_num_emails})
+
     }
 
 
     render() {
 
-        console.log(this.state);
+        console.log("current state:", this.state);
 
         let letter_display = letter_body.split('\n').map((item, i) => {
             return <p key={i}>{item}</p>;
